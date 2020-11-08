@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>Machine Learning</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+<style>
+.login{
+top: 20%;
+}
+</style>
+</head>
+
+<body>
+ <div class="login">
+	<h1>Predicting Compressive Strength of Concrete</h1>
+    
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('y_predict')}}"method="post">
+    	<input type="text" name="cement" placeholder="Cement (kg in a m^3 mixture)" required="required" />
+        <input type="text" name="blast_furnace_slag" placeholder="Blast Furnace Slag (kg in a m^3 mixture)" required="required" />
+		<input type="text" name="fly_ash" placeholder="Fly Ash (kg in a m^3 mixture)" required="required" />
+        <input type="text" name="water" placeholder="Water (kg in a m^3 mixture)" required="required" />
+        <input type="text" name="superplasticizer" placeholder="Superplasticizer (kg in a m^3 mixture)" required="required" />
+        <input type="text" name="coarse_aggregate" placeholder="Coarse Aggregate (kg in a m^3 mixture)" required="required" />
+        <input type="text" name="fine_aggregate" placeholder="Fine Aggregate (kg in a m^3 mixture) " required="required" />
+        <input type="text" name="age" placeholder="Age (day)" required="required" />
+        <button type="submit" class="btn btn-primary btn-block btn-large">Find Out Strength! &#128170</button>
+    
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+</div>
+
+</body>
+</html>
+
